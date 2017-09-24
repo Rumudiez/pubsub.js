@@ -6,7 +6,7 @@ const nextId = (() => {
 })();
 
 export function subscribe(topic, callback) {
-  const topics = this.pubsub && this.pubsub._topics ? this.pubsub._topics : globalTopics;
+  const topics = this && this.pubsub && this.pubsub._topics ? this.pubsub._topics : globalTopics;
   if (!topics.hasOwnProperty(topic)) {
     topics[topic] = {};
   }
@@ -20,7 +20,7 @@ export function subscribe(topic, callback) {
 }
 
 export function publish(topic) {
-  const topics = this.pubsub && this.pubsub._topics ? this.pubsub._topics : globalTopics;
+  const topics = this && this.pubsub && this.pubsub._topics ? this.pubsub._topics : globalTopics;
   if (topics.hasOwnProperty(topic)) {
     const args = [...arguments].splice(1);
 
