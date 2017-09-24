@@ -8,8 +8,9 @@ use in client side applications.
 import { publish, subscribe } from 'pubsub';
 
 subscribe('myEventName', (value) => {
-  console.log(`My event returned: ${value}`);
+  console.log(`Hello, ${value}!`);
 });
 
-publish('myEventName');
+publish('myEventName', 'world');
+// Hello, world!
 ```
